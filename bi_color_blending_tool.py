@@ -65,16 +65,11 @@ with col2:
 st.markdown("#### Stap 4: Kopieer hexkleur of JSON")
 st.code(blended_hex, language='text')
 
-json_output = '{{
-  "name": "{} {}%",
-  "value": "{}"
-}}'.format(
+json_output = '{{\n  "name": "{} {}%",\n  "value": "{}"\n}}'.format(
     color_choice, int(opacity_label * 100), blended_hex
 )
 
 st.text_area("JSON-export (bijvoorbeeld voor Power BI thema)", value=json_output, height=100)
-st.button("📋 Kopieer HEX", on_click=lambda: st.session_state.update({"_clipboard": blended_hex}))
-st.button("📋 Kopieer JSON", on_click=lambda: st.session_state.update({"_clipboard": json_output}))
 
 # --- Extra: Generator voor stijlen ---
 st.markdown("#### Automatische stijlvarianten")
